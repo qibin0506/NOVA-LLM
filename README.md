@@ -1,1 +1,1 @@
-![nova](./images/minimind2.gif)
+![nova](./static/web_ui.png)
