@@ -1,0 +1,4 @@
+# Base ----------------------------------------
+transformers
+deepspeed
+sentencepiece
