@@ -1,1 +1,1 @@
-# novel.ai
+![nova](./images/minimind2.gif)
