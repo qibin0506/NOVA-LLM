@@ -1,4 +1,8 @@
 # Base ----------------------------------------
+torch
 transformers
 deepspeed
 sentencepiece
+matplotlib
+bottle
+scikit_learn
