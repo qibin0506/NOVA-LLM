@@ -6,3 +6,4 @@ sentencepiece
 matplotlib
 bottle
 scikit_learn
+pandas
