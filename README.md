@@ -71,8 +71,20 @@
 - 运行`process_data.py`将上面整理的数据集编码成pkl文件用于训练
 
 #### 预训练
+执行`smart_train train_pretrain.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数
 
 #### SFT
+执行`smart_train train_sft.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
+训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
+
 #### DPO
+执行`smart_train train_dpo.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
+训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
+
 #### Reasoning
+执行`smart_train train_reasoning.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
+训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
+
 #### GRPO
+执行`smart_train train_reasoning.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
+训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
