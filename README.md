@@ -68,23 +68,32 @@
       - r1_mix_1024.jsonl
       - sft_data_en.jsonl
       - sft_data_zh.jsonl
-- 运行`process_data.py`将上面整理的数据集编码成pkl文件用于训练
+- 运行`process_data.py`将上面整理的数据集编码成pkl文件用于训练。其中sft_data_en.jsonl和sft_data.zh.jsonl会在合并后安装`0.8:0.2`的比例拆分出预训练数据集和sft数据集。
 
 #### 预训练
-执行`smart_train train_pretrain.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数
+作用：预训练是让模型学习世界知识。
+
+方法：执行`smart_train train_pretrain.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数
 
 #### SFT
-执行`smart_train train_sft.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
-训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
+作用：SFT可以让模型学习对话格式。
+
+方法：执行`smart_train train_sft.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
 
 #### DPO
-执行`smart_train train_dpo.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
-训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
+作用：DPO可以让模型按照人类喜欢的方式进行回答。因模型和数据限制，该阶段提升不大，仅为跑通流程。
+
+方法：执行`smart_train train_dpo.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
 
 #### Reasoning
-执行`smart_train train_reasoning.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
-训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
+作用：reasoning可以让模型学会在回答问题之前先进行思考。
+
+方法：执行`smart_train train_reasoning.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
+
 
 #### GRPO
-执行`smart_train train_reasoning.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
+作用：GRPO主要是让模型更擅长解数据题。因模型和数据限制，该阶段提升不大，仅为跑通流程。
+
+方法：执行`smart_train train_grpo.py`进行预训练，可在`utils.py`中调节训练`epoch`, `batch_size`等参数。
+
 训练完成后将ckpt_dir下载到本地，命令cd到该目录下，执行`python3 zero_to_fp32.py ./ ./`生成`.bin`文件，该文件可以通过`torch.load`加载权重。
