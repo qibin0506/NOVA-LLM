@@ -35,7 +35,7 @@
    
 ### 推理
 1. 下载模型权重并将权重文件放到modeling目录 [dpo.bin](https://github.com/qibin0506/NOVA-LLM/releases/download/dependence/dpo.bin)、[reasoning.bin](https://github.com/qibin0506/NOVA-LLM/releases/download/dependence/reasoning.bin)、[grpo.bin](https://github.com/qibin0506/NOVA-LLM/releases/download/dependence/grpo.bin)
-2. 运行app.py，然后浏览器访问 [http://localhost:8080](http://localhost:8080)
+2. 运行`app.py`，然后浏览器访问 [http://localhost:8080](http://localhost:8080)
     ```
     python3 app.py
     ```
@@ -44,8 +44,34 @@
 训练流程可以按照如下顺序进行处理：
 处理数据 -> 预训练 -> SFT -> DPO（可选，因模型太小，效果不明显） -> Reasoning -> GRPO（可选，因模型太小，效果不明显）
 
+**训练库支持多卡并行训练，本项目使用deepspeed ZeRO3进行训练**
+
 #### 数据预处理
+- 下载数据集
+    - 下载sft_data_en.jsonl和sft_data_zh.jsonl -> [https://www.modelscope.cn/datasets/deepctrl/deepctrl-sft-data/](https://www.modelscope.cn/datasets/deepctrl/deepctrl-sft-data/)
+    - 下载dpo.jsonl -> [https://www.modelscope.cn/datasets/gongjy/minimind_dataset](https://www.modelscope.cn/datasets/gongjy/minimind_dataset)
+    - 下载dpo_en.json和dpo_zh.json -> [https://huggingface.co/datasets/shibing624/DPO-En-Zh-20k-Preference](https://huggingface.co/datasets/shibing624/DPO-En-Zh-20k-Preference)
+    - 下载r1_mix_1024.jsonl -> [https://www.modelscope.cn/datasets/gongjy/minimind_dataset](https://www.modelscope.cn/datasets/gongjy/minimind_dataset)
+    - 下载alpaca_r1_data_zh-localpost.json -> [https://huggingface.co/datasets/shareAI/Alpaca-Distill-R1-ZH/](https://huggingface.co/datasets/shareAI/Alpaca-Distill-R1-ZH/)
+    - 下载gsm8k_chinese -> [https://huggingface.co/datasets/swulling/gsm8k_chinese](https://huggingface.co/datasets/swulling/gsm8k_chinese)
+- 将下载的数据放到data/raw目录下，整体文件结构为
+  - data
+    - raw
+      - dpo
+        - dpo.jsonl
+        - dpo_en.json
+        - dpo_zh.json
+      - gsm8k_chinese
+        - test-00000-of-00001.parquet
+        - train-00000-of-00001.parquet
+      - alpaca_r1_data_zh-localpost.json
+      - r1_mix_1024.jsonl
+      - sft_data_en.jsonl
+      - sft_data_zh.jsonl
+- 运行`process_data.py`将上面整理的数据集编码成pkl文件用于训练
+
 #### 预训练
+
 #### SFT
 #### DPO
 #### Reasoning
