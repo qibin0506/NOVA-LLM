@@ -29,7 +29,8 @@
    ```
    pip3 install project_llm_trainer-0.1-py3-none-any.whl
    ```
-
+4. 下载web ui依赖并将文件解压到static目录 [web_ui.zip](https://github.com/qibin0506/NOVA-LLM/releases/download/dependence/web_ui.zip)
+   
 ### 推理
 
 ### 训练
