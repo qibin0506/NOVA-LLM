@@ -3,6 +3,16 @@
 </div>
 
 <div align="center">
+    
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=qibin0506/NOVA-LLM)
+[![GitHub Repo stars](https://img.shields.io/github/stars/qibin0506/NOVA-LLM?style=social)](https://github.com/qibin0506/NOVA-LLM/stargazers)
+[![GitHub Code License](https://img.shields.io/github/license/qibin0506/NOVA-LLM)](LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/qibin0506/NOVA-LLM)](https://github.com/qibin0506/NOVA-LLM/commits/master)
+[![GitHub pull request](https://img.shields.io/badge/PRs-welcome-blue)](https://github.com/qibin0506/NOVA-LLM/pulls)
+
+</div>
+
+<div align="center">
   <h1>N.O.V.A LLM</h1>
 </div>
 
