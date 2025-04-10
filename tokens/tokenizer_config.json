@@ -90,6 +90,30 @@
       "rstrip": false,
       "single_word": false,
       "special": true
+    },
+    "46952": {
+      "content": "<image>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "46953": {
+      "content": "</image>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "46954": {
+      "content": "<unuse_token_1>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
     }
   },
   "additional_special_tokens": [
@@ -99,9 +123,12 @@
     "<assistant>",
     "<reasoning>",
     "</reasoning>",
-    "<unuse_token_1>",
-    "<unuse_token_2>",
-    "<unuse_token_3>"
+    "<system>",
+    "<answer>",
+    "</answer>",
+    "<image>",
+    "</image>",
+    "<unuse_token_1>"
   ],
   "clean_up_tokenization_spaces": false,
   "eos_token": "</s>",
