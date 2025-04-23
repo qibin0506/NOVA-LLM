@@ -24,6 +24,10 @@
 
 ---
 
+更新日志：<br />
+- 2025.04.23: 添加视觉模型训练代码，web应用程序添加视觉模型支持
+---
+
 <div align="center">
   <img src="./images/web_ui.png">
   <img src="./images/vision.png">
