@@ -7,3 +7,4 @@ matplotlib
 bottle
 scikit_learn
 pandas
+protobuf
