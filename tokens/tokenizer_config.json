@@ -100,7 +100,7 @@
       "special": true
     },
     "46953": {
-      "content": "</image>",
+      "content": "<unuse_token_1>",
       "lstrip": false,
       "normalized": false,
       "rstrip": false,
@@ -108,7 +108,7 @@
       "special": true
     },
     "46954": {
-      "content": "<unuse_token_1>",
+      "content": "<unuse_token_2>",
       "lstrip": false,
       "normalized": false,
       "rstrip": false,
@@ -127,8 +127,8 @@
     "<answer>",
     "</answer>",
     "<image>",
-    "</image>",
-    "<unuse_token_1>"
+    "<unuse_token_1>",
+    "<unuse_token_2>"
   ],
   "clean_up_tokenization_spaces": false,
   "eos_token": "</s>",

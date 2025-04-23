@@ -71,14 +71,14 @@
       "single_word": false
     },
     {
-      "content": "</image>",
+      "content": "<unuse_token_1>",
       "lstrip": false,
       "normalized": false,
       "rstrip": false,
       "single_word": false
     },
     {
-      "content": "<unuse_token_1>",
+      "content": "<unuse_token_2>",
       "lstrip": false,
       "normalized": false,
       "rstrip": false,
