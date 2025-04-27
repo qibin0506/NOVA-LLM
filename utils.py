@@ -205,7 +205,7 @@ def _get_train_config(
         period_mul = 1
         warmup_iters = 3000
 
-    lr_scheduler_config = train_configs.LrSchedulerConfig(
+    lr_config = train_configs.LrConfig(
         enable_lr_scheduler=True,
         initial_lr=initial_lr,
         max_lr=max_lr,
@@ -232,7 +232,7 @@ def _get_train_config(
         loss_config=loss_config,
         dpo_config=dpo_config,
         grpo_config=grpo_config,
-        lr_scheduler_config=lr_scheduler_config,
+        lr_config=lr_config,
         ds_config=ds_config,
         data_loader_config=data_loader_config,
         kd_config=None
@@ -363,7 +363,7 @@ def get_vlm_train_config(is_sft: bool):
     period_mul = 1
     warmup_iters = 500
 
-    lr_scheduler_config = train_configs.LrSchedulerConfig(
+    lr_config = train_configs.LrConfig(
         enable_lr_scheduler=True,
         initial_lr=initial_lr,
         max_lr=max_lr,
@@ -391,7 +391,7 @@ def get_vlm_train_config(is_sft: bool):
         loss_config=loss_config,
         dpo_config=None,
         grpo_config=None,
-        lr_scheduler_config=lr_scheduler_config,
+        lr_config=lr_config,
         ds_config=ds_config,
         data_loader_config=data_loader_config,
         kd_config=None,
@@ -400,3 +400,6 @@ def get_vlm_train_config(is_sft: bool):
     )
 
     return train_config
+
+
+# 训练过程 pretrain->sft->dpo->reasoning->grpo
