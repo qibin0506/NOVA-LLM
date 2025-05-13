@@ -42,9 +42,9 @@
    ```
    pip3 install project_llm_model-0.2-py3-none-any.whl
    ```
-3. 下载训练库并安装 [llm_trainer](https://github.com/qibin0506/llm_trainer/releases/download/llm_trainer_0.2/project_llm_trainer-0.2-py3-none-any.whl)
+3. 下载训练库并安装 [llm_trainer](https://github.com/qibin0506/llm_trainer/releases/download/llm_trainer_0.2.1/project_llm_trainer-0.2.1-py3-none-any.whl)
    ```
-   pip3 install project_llm_trainer-0.2-py3-none-any.whl
+   pip3 install project_llm_trainer-0.2.1-py3-none-any.whl
    ```
 4. 下载web ui依赖并将文件解压到static目录 [web_ui.zip](https://github.com/qibin0506/NOVA-LLM/releases/download/dependence/web_ui.zip)
    
