@@ -1,5 +1,5 @@
 import torch
-from llm_trainer import TrainerTools, train_configs
+from llm_trainer import TrainerTools, FileDataset, train_configs
 from llm_model import ModelConfig, VLMConfig, RoPEConfig, MoEConfig
 import os
 from PIL import Image
@@ -7,6 +7,18 @@ import csv
 from constant import *
 
 from transformers import AutoProcessor, SiglipVisionModel
+
+
+class ListFileDataset(FileDataset):
+    def __init__(self, files):
+        self.files = files
+
+    def __len__(self) -> int:
+        return len(self.files)
+
+    def __getitem__(self, idx) -> str:
+        return self.files[idx]
+
 
 def init_env():
     #  Of the allocated memory 33.98 GiB is allocated by PyTorch,
@@ -117,7 +129,7 @@ def _get_train_config(
         is_dpo: bool,
         is_grpo: bool,
         real_batch_size: int,
-        all_files: list[str],
+        file_dataset: FileDataset,
         model_config: ModelConfig
 ):
     desire_batch_size = real_batch_size * 3
@@ -226,7 +238,7 @@ def _get_train_config(
         n_epochs=n_epochs,
         batch_size=real_batch_size,
         model_config=model_config,
-        all_files=all_files,
+        file_dataset=file_dataset,
         gradient_accumulation_steps=gradient_accumulation_steps,
         eval_batch_interval=eval_batch_interval,
         loss_config=loss_config,
@@ -261,7 +273,7 @@ def get_pretrain_config():
         is_dpo=False,
         is_grpo=False,
         real_batch_size=14,
-        all_files=pretrain_data_list,
+        file_dataset=ListFileDataset(pretrain_data_list),
         model_config=get_model_config()
     )
 
@@ -274,7 +286,7 @@ def get_sft_config():
         is_dpo=False,
         is_grpo=False,
         real_batch_size=12,
-        all_files=['./data/sft_deepctrl_short.pkl'],
+        file_dataset=ListFileDataset(['./data/sft_deepctrl_short.pkl']),
         model_config=get_model_config()
     )
 
@@ -287,7 +299,7 @@ def get_dpo_config():
         is_dpo=True,
         is_grpo=False,
         real_batch_size=6,
-        all_files=['./data/dpo.pkl'],
+        file_dataset=ListFileDataset(['./data/dpo.pkl']),
         model_config=get_model_config()
     )
 
@@ -300,7 +312,7 @@ def get_reasoning_config():
         is_sft=True,
         is_grpo=False,
         real_batch_size=12,
-        all_files=['./data/r1_mix_1024.pkl'],
+        file_dataset=ListFileDataset(['./data/r1_mix_1024.pkl']),
         model_config=get_model_config()
     )
 
@@ -313,7 +325,7 @@ def get_grpo_config():
         is_sft=False,
         is_grpo=True,
         real_batch_size=4,
-        all_files=['./data/grpo.pkl'],
+        file_dataset=ListFileDataset(['./data/grpo.pkl']),
         model_config=get_model_config()
     )
 
@@ -384,7 +396,7 @@ def get_vlm_train_config(is_sft: bool):
         n_epochs=n_epochs,
         batch_size=real_batch_size,
         model_config=model_config,
-        all_files=all_files,
+        file_dataset=ListFileDataset(all_files),
         mask_prompt=is_sft,
         gradient_accumulation_steps=gradient_accumulation_steps,
         eval_batch_interval=eval_batch_interval,
